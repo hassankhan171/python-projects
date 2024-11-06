@@ -1,31 +1,42 @@
 import random
 
-from janitor.plugincore.exceptions import ComputerJanitorException
-
-
 def game_rounds():
     try:
+        Hassan_score = 0
+        Computer_score = 0
+
         n = int(input("Enter the number of rounds: "))
         for i in range(1, n+1):
-            player1 = input("Select Rock, Paper, or Scissor :").lower()
-            computer = random.choice(["Rock", "Paper", "Scissor"]).lower()
-            print("player 1 selected: ", player1)
-            print("computer selected: ", computer)
+            Hassan = input("Select Rock, Paper, or Scissor: ").lower()
+            Computer = random.choice(["Rock", "Paper", "Scissor"]).lower()
+            print("Hassan selected: ", Hassan)
+            print("Computer selected: ", Computer)
 
-            if player1 == "rock" and computer == "paper":
-                print("computer Won")
-            elif player1 == "rock" and computer == "scissor":
-                print("Player1 Won")
-            elif player1 == "paper" and computer == "rock":
-                print("Player1 Won")
-            elif player1 == "paper" and computer == "scissor":
+            if Hassan == "rock" and Computer == "paper":
                 print("Computer Won")
-            elif player1 == "scissor" and computer == "rock":
+                Computer_score += 1
+            elif Hassan == "paper" and Computer == "scissor":
                 print("Computer Won")
-            elif player1 == computer:
+                Computer_score += 1
+            elif Hassan == "scissor" and Computer == "rock":
+                print("Computer Won")
+                Computer_score += 1
+            elif Hassan == Computer:
                 print("Tie")
             else:
-                print("Player 1 Won")
+                print("Hassan Won")
+                Hassan_score += 1
+
+        print(f"Hassan: {Hassan_score}")
+        print(f"Computer: {Computer_score}")
+
+        if Hassan_score > Computer_score:
+            print("Hassan is the overall winner!")
+        elif Computer_score > Hassan_score:
+            print("Computer is the overall winner!")
+        else:
+            print("It's a tie!")
+
     except Exception as e:
         print('Something went wrong')
         print('Error reason: ', e)
@@ -37,10 +48,10 @@ game_rounds()
 # If both players throw the same hand signal, it is considered a tie,
 # and play resumes until there is a clear winner.
 
-#Player1 Computer   winner
-#rock     paper     Computer
-#rock     scissor   Player1
-#paper    rock      Player1
-#paper    scissor   Computer
-#scissor  rock      Computer
-#scissor  paper     Player1
+#Hassan Computer   winner
+#rock     paper     Computer  (paper)
+#rock     scissor   Hassan    (rock)
+#paper    rock      Hassan    (paper)
+#paper    scissor   Computer  (scissor)
+#scissor  rock      Computer  (rock)
+#scissor  paper     Hassan    (scissor)
