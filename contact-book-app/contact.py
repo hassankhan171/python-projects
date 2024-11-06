@@ -2,9 +2,6 @@ class PhoneBook:
     contacts = {}
     total_contact = 0
 
-    def fx2():
-        print("This is Method")
-
     def menu(self):
         print("1. Create Contact: ")
         print("2. View Contact: ")
