@@ -4,19 +4,22 @@
 #test => es
 #testing => t
 
-word = input("Enter The Word: ")
-n = len(word)
-print("----------")
-print(f"Total {n} characters")
-if n%2 == 0:
-    print("It is an Even number")
+try:
+    word = input("Enter The Word: ")
+    n = len(word)
     print("----------")
-    print(word[n//2 - 1], word[n//2])
-else:
-    print("It is an Odd number")
-    print("----------")
-    print(word[(n-1)//2])
-
+    print(f"Total {n} characters")
+    if n%2 == 0:
+        print("It is an Even number")
+        print("----------")
+        print(word[n//2 - 1], word[n//2])
+    else:
+        print("It is an Odd number")
+        print("----------")
+        print(word[(n-1)//2])
+except Exception as e:
+    print('Something went wrong')
+    print('Error reason: ', e)
 
 
 

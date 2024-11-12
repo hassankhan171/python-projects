@@ -11,9 +11,12 @@ Output:
 1
 '''
 
-number = input("Enter the number: ")
-n = len(number)
-print(f"Total digits in the number: {n} ")
-for i in range(n):
-    print(number[i])
-
+try:
+    number = input("Enter the number: ")
+    n = len(number)
+    print(f"Total digits in the number: {n} ")
+    for i in range(n):
+        print(number[i])
+except Exception as e:
+    print('Something went wrong')
+    print('Error reason: ', e)

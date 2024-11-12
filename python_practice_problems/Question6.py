@@ -5,12 +5,14 @@
 #if statement.
 
 # solution
-
-numbers = [1, -4, 7, 12]
-n = len(numbers)
-sum_pos = 0
-for i in range(n):
-    if numbers[i]>0:
-        sum_pos = sum_pos + numbers[i]
-print(sum)
-
+try:
+    numbers = [1, -4, 7, 12]
+    n = len(numbers)
+    sum_pos = 0
+    for i in range(n):
+        if numbers[i]>0:
+            sum_pos = sum_pos + numbers[i]
+    print(sum_pos)
+except Exception as e:
+    print('Something went wrong')
+    print('Error reason: ', e)
